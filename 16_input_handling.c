@@ -8,24 +8,11 @@
 * ---------------------------------------
 */
 #include <stdio.h>
-#include <stdint.h>
 
-const size_t max = 100;
-int* numbers[100];
-int current_index = 0;
+int main(int argc, char* argv[]) {
+  printf("You provided %d arguments:\n", argc + 1 );
 
-void add(int n) {
-  if (current_index == max) return;
-  *numbers[current_index] = n;
+  for(int i = 0; i <= argc; i++) {
+    printf("arg %d: %s\n" ,i, argv[i] );
+  }
 }
-
-void incr(int i) {
-  if (current_index < i) return;
-  *numbers[current_index] += 1;
-}
-
-int get(int i) {
-  if (i > max) return 0;
-  return *numbers[i];
-}
-

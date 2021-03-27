@@ -8,23 +8,27 @@
 * ---------------------------------------
 */
 #include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
 
-union {
-  int val;
-  const char single[4];
-  const struct { 
-    short hi;
-    short lo;
-  } section;
-} bitfield;
+void* func(void* msg) {
+  printf("In sub, modyfying msg");
+
+  return NULL;
+}
 
 int main(int argc, char* argv[]) {
-  bitfield.val = 0xc0ffee;
+  char msg1[] = {"Hello Main!"};
 
-  printf("Bitfield: val %d\n", bitfield.val);
-  printf("Bitfield: single[2] %d\n", bitfield.single[1]);
-  printf("Bitfield: hi %d\n", bitfield.section.hi);
-  printf("Bitfield: lo %d\n", bitfield.section.lo);
+  pthread_t sub;
+
+  printf("In main? %s\n", msg1);
+
+  pthread_create(&sub, NULL, func, &msg1);
+
+  pthread_join(sub, NULL);
+
+  printf("In main? %s\n", msg1);
 
   printf("\nGoodbye!\n");
 }
