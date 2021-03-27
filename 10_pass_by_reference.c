@@ -8,16 +8,22 @@
 * ---------------------------------------
 */
 #include <stdio.h>
-#include <stdint.h>
+
+int* inc(int* i) {
+  return (++(*i));
+}
 
 int main(int argc, char* argv[]) {
-  int8_t i8;
-  int16_t i16;
-  int32_t i32;
-  int64_t i64;
-  
-  printf("Max size of i8 %zu bytes\n", sizeof(i8));
-  printf("Max size of i16 %zu bytes\n", sizeof(i16));
-  printf("Max size of i32 %zu bytes\n", sizeof(i32));
-  printf("Max size of i64 %zu bytes\n", sizeof(i64));
+  int i = 42;
+  int* i_ptr = &i;
+
+  printf("int i is %d\n", (*i_ptr));
+
+  int** i_ptr2 = inc(i_ptr);
+ 
+  printf("int i is %d\n", i);
+  printf("int i is %d\n", *i_ptr);
+  printf("int i is %d\n", i_ptr2);
+
+  printf("\nGoodbye!\n");
 }

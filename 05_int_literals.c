@@ -8,16 +8,18 @@
 * ---------------------------------------
 */
 #include <stdio.h>
-#include <stdint.h>
 
 int main(int argc, char* argv[]) {
-  int8_t i8;
-  int16_t i16;
-  int32_t i32;
-  int64_t i64;
+  int i = 10;
+  long int li = 100L;
+  unsigned int ui = 35531U;
+
+  printf("Int i %d\n", i);
+  printf("Int li %Ld\n", li);
+  printf("Int ui %d\n", ui);
   
-  printf("Max size of i8 %zu bytes\n", sizeof(i8));
-  printf("Max size of i16 %zu bytes\n", sizeof(i16));
-  printf("Max size of i32 %zu bytes\n", sizeof(i32));
-  printf("Max size of i64 %zu bytes\n", sizeof(i64));
+  printf("Int ui Hex %X\n", ui);
+  printf("Int ui Oct %o\n", ui);
+
+  printf("\nGoodbye!\n");
 }

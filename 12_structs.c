@@ -8,16 +8,26 @@
 * ---------------------------------------
 */
 #include <stdio.h>
-#include <stdint.h>
+
+typedef struct book book;
+
+struct book {
+  char name[10];
+  int pages;
+};
+
+void setPages(book* b, int p) {
+  (*b).pages = p;
+}
 
 int main(int argc, char* argv[]) {
-  int8_t i8;
-  int16_t i16;
-  int32_t i32;
-  int64_t i64;
+  book b1 = {"C Syntax", 160};
+
+  printf("Book1:  title '%s' | pages: %d\n", b1.name, b1.pages);
   
-  printf("Max size of i8 %zu bytes\n", sizeof(i8));
-  printf("Max size of i16 %zu bytes\n", sizeof(i16));
-  printf("Max size of i32 %zu bytes\n", sizeof(i32));
-  printf("Max size of i64 %zu bytes\n", sizeof(i64));
+  setPages(&b1, 200);
+  
+  printf("Book1:  title '%s' | pages: %d\n", b1.name, b1.pages);
+
+  printf("\nGoodbye!\n");
 }

@@ -8,16 +8,13 @@
 * ---------------------------------------
 */
 #include <stdio.h>
-#include <stdint.h>
+
+#pragma "Compiling " __FILE__
 
 int main(int argc, char* argv[]) {
-  int8_t i8;
-  int16_t i16;
-  int32_t i32;
-  int64_t i64;
-  
-  printf("Max size of i8 %zu bytes\n", sizeof(i8));
-  printf("Max size of i16 %zu bytes\n", sizeof(i16));
-  printf("Max size of i32 %zu bytes\n", sizeof(i32));
-  printf("Max size of i64 %zu bytes\n", sizeof(i64));
+  printf("This programm was compiled %s | %s\n",__DATE__, __TIME__ );
+  printf("File Name: %s\n", __FILE__);
+  printf("Now in Line %d\n", __LINE__);
+
+  printf("\nGoodbye!\n");
 }

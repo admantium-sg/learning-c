@@ -8,16 +8,19 @@
 * ---------------------------------------
 */
 #include <stdio.h>
-#include <stdint.h>
 
 int main(int argc, char* argv[]) {
-  int8_t i8;
-  int16_t i16;
-  int32_t i32;
-  int64_t i64;
+  char c = 'X';
+  char s_1[] = "Hello";
+  char s_2[] = {'H', 'e', 'l', 'l', 'o', '\0'}; //C strings are null-terminated
+
+  _Bool b = 1;
+
+  printf("Char c %c\n", c);
+  printf("Char[] %s\n",s_1);
+  printf("Char[] %s\n",s_2);
   
-  printf("Max size of i8 %zu bytes\n", sizeof(i8));
-  printf("Max size of i16 %zu bytes\n", sizeof(i16));
-  printf("Max size of i32 %zu bytes\n", sizeof(i32));
-  printf("Max size of i64 %zu bytes\n", sizeof(i64));
+  printf("Bool b %d\n", b);
+
+  printf("\nGoodbye!\n");
 }
