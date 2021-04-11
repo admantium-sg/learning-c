@@ -2,3 +2,5 @@
 *.log
 *.out
 *.bin
+tmp.c
+*.tmp
